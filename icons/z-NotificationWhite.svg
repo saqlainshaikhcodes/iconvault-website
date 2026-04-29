@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="34" height="33" viewBox="0 0 34 35">
+  <defs>
+    <clipPath id="clip-path">
+      <rect x="2" width="30" height="30" fill="none"/>
+    </clipPath>
+    <filter id="Ellipse_49" x="2" y="0" width="34" height="34" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_3307" data-name="Group 3307" transform="translate(-381 -49)">
+    <path id="Icon_material-notifications" data-name="Icon material-notifications" d="M15,25.688a2.257,2.257,0,0,0,2.25-2.25h-4.5A2.249,2.249,0,0,0,15,25.688Zm6.75-6.75V13.313c0-3.454-1.845-6.345-5.062-7.11V5.438a1.688,1.688,0,0,0-3.375,0V6.2c-3.229.765-5.063,3.645-5.063,7.11v5.625L6,21.188v1.125H24V21.188Z" transform="translate(375 58.313)" fill="#fff"/>
+  
+  </g>
+</svg>

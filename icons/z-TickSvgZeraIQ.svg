@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39.754" viewBox="0 0 39 39.754">
+  <g id="Group_29" data-name="Group 29" transform="translate(94.5 -368.33)">
+    <circle id="Ellipse_27" data-name="Ellipse 27" cx="19.5" cy="19.5" r="19.5" transform="translate(-94.5 368.707)" fill="#fff"/>
+    <g id="Group_15" data-name="Group 15" transform="translate(-94.5 368.33)">
+      <g id="Group_26" data-name="Group 26">
+        <ellipse id="Ellipse_26" data-name="Ellipse 26" cx="19.5" cy="19.877" rx="19.5" ry="19.877" fill="#00ff4c"/>
+        <path id="Icon_awesome-check" data-name="Icon awesome-check" d="M7.146,19.958.308,13.12a1.052,1.052,0,0,1,0-1.488L1.8,10.145a1.052,1.052,0,0,1,1.488,0l4.606,4.606,9.866-9.866a1.052,1.052,0,0,1,1.488,0L20.73,6.373a1.052,1.052,0,0,1,0,1.488l-12.1,12.1A1.052,1.052,0,0,1,7.146,19.958Z" transform="translate(9 6.941)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

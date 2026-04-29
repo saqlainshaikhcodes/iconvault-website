@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <filter id="Icon_material-question-answer" x="0" y="0" width="16" height="16" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161" result="color"/>
+      <feComposite operator="out" in="SourceGraphic" in2="blur"/>
+      <feComposite operator="in" in="color"/>
+      <feComposite operator="in" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g data-type="innerShadowGroup">
+    <path id="Icon_material-question-answer-2" data-name="Icon material-question-answer" d="M18.2,6.2H16.6v7.2H6.2V15a.8.8,0,0,0,.8.8h8.8L19,19V7A.8.8,0,0,0,18.2,6.2ZM15,11V3.8a.8.8,0,0,0-.8-.8H3.8a.8.8,0,0,0-.8.8V15l3.2-3.2h8A.8.8,0,0,0,15,11Z" transform="translate(-3 -3)" fill="#00ff4c"/>
+    <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Icon_material-question-answer)">
+      <path id="Icon_material-question-answer-3" data-name="Icon material-question-answer" d="M18.2,6.2H16.6v7.2H6.2V15a.8.8,0,0,0,.8.8h8.8L19,19V7A.8.8,0,0,0,18.2,6.2ZM15,11V3.8a.8.8,0,0,0-.8-.8H3.8a.8.8,0,0,0-.8.8V15l3.2-3.2h8A.8.8,0,0,0,15,11Z" transform="translate(-3 -3)" fill="#00ff4c"/>
+    </g>
+  </g>
+</svg>
