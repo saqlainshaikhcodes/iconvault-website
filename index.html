@@ -543,8 +543,8 @@
     <span class="logo-text">Icon<em>Vault</em></span>
   </a>
   <div class="header-right">
-    <a href="https://www.npmjs.com/package/iconvault-native" target="_blank" rel="noopener" class="hbtn">📦 npm</a>
-    <a href="https://github.com/saqlainshaikhcodes/iconvault-website" target="_blank" rel="noopener" class="hbtn">⭐ GitHub</a>
+    <a  target="_blank" rel="noopener" class="hbtn">📦 npm</a>
+    <a  target="_blank" rel="noopener" class="hbtn">⭐ GitHub</a>
   </div>
 </header>
 
@@ -713,7 +713,7 @@ const GITHUB_BRANCH = 'main';
 // 2. GitHub raw (fallback if fetch fails)
 // 3. unpkg (fallback if npm package has the icons)
 function getIconUrl(name) {
-  return `https://unpkg.com/iconvault-native@1.0.2/icons/${name}.svg`;
+  return `./icons/${name}.svg`;
 }
 
 function getIconFallbackUrl(name) {
@@ -789,24 +789,7 @@ window.addEventListener('scroll', () => {
 async function loadIcons() {
   const loadingEl = document.getElementById('loading-indicator');
 
-  // Strategy 1: unpkg (most reliable — npm package is published)
-  try {
-    const res = await fetch(`https://unpkg.com/${NPM_PKG}/icons.json`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-    if (Array.isArray(data) && data.length > 0) {
-      ICONS = data;
-      document.getElementById('total-count').textContent = ICONS.length.toLocaleString();
-      loadingEl.style.display = 'none';
-      renderGrid();
-      return;
-    }
-    throw new Error('Empty or invalid icons.json from unpkg');
-  } catch(e) {
-    console.warn('unpkg icons.json failed:', e.message);
-  }
-
-  // Strategy 2: Same-origin (works locally)
+  // Strategy 1: Fetch ./icons.json (works locally + on Vercel if file is deployed)
   try {
     const res = await fetch('./icons.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -823,7 +806,7 @@ async function loadIcons() {
     console.warn('Local icons.json failed:', e.message);
   }
 
-  // Strategy 3: GitHub raw URL
+  // Strategy 2: Fetch from GitHub raw URL
   try {
     const ghUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/icons.json`;
     const res = await fetch(ghUrl);
@@ -1013,7 +996,7 @@ async function openModal(name) {
 
   // Try same-origin first, then GitHub raw fallback
   const urls = [
-    `https://unpkg.com/iconvault-native@1.0.2/icons/${name}.svg`,
+    `./icons/${name}.svg`,
     `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/icons/${name}.svg`
   ];
 
