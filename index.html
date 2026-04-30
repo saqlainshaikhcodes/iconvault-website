@@ -1071,7 +1071,10 @@ function renderGrid(animated = true) {
     grid.innerHTML = pageData.map((name, i) => `
       <div class="icon-card" style="animation-delay:${Math.min(i * 18, 400)}ms" onclick="openModal('${name}')">
         <div class="icon-preview">
-          <img src="/icons/${name}.svg" width="${globalSize}" height="${globalSize}" loading="lazy" onerror="this.style.opacity='.3'" />
+          <img
+          // local  src="./icons/${name}.svg"
+          src="https://unpkg.com/iconvault-native/icons/${name}.svg"
+          width="${globalSize}" height="${globalSize}" loading="lazy" onerror="this.style.opacity='.3'" />
         </div>
         <div class="icon-name">${formatName(name)}</div>
         <div class="copy-flash">✨ Copied</div>
@@ -1160,7 +1163,7 @@ async function openModal(name) {
   active = { name, svgRaw: null };
 
   try {
-    const res = await fetch(`/icons/${name}.svg`);
+    const res = await fetch(`./icons/${name}.svg`);
     const text = await res.text();
     active.svgRaw = text.trim();
   } catch(e) {
@@ -1212,10 +1215,10 @@ function updatePreview() {
       previewEl.innerHTML = '';
       previewEl.appendChild(svgEl);
     } else {
-      previewEl.innerHTML = `<img src="/icons/${active.name}.svg" width="${sz}" height="${sz}" />`;
+      previewEl.innerHTML = `<img src="./icons/${active.name}.svg" width="${sz}" height="${sz}" />`;
     }
   } else {
-    previewEl.innerHTML = `<img src="/icons/${active.name}.svg" width="${sz}" height="${sz}" />`;
+    previewEl.innerHTML = `<img src="./icons/${active.name}.svg" width="${sz}" height="${sz}" />`;
   }
 
   renderCode(fill, stroke, sz, sw);
