@@ -45,7 +45,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ── Noise layer ── */
     body::before {
       content: '';
       position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -53,7 +52,6 @@
       opacity: .6;
     }
 
-    /* ─────────── HEADER ─────────── */
     header {
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 40px; height: 64px;
@@ -63,10 +61,7 @@
       position: sticky; top: 0; z-index: 50;
       transition: box-shadow var(--transition-med);
     }
-
-    header.scrolled {
-      box-shadow: 0 8px 32px rgba(0,0,0,.4);
-    }
+    header.scrolled { box-shadow: 0 8px 32px rgba(0,0,0,.4); }
 
     .logo {
       display: flex; align-items: center; gap: 10px;
@@ -83,11 +78,7 @@
       flex-shrink: 0;
       transition: transform var(--transition-med), box-shadow var(--transition-med);
     }
-    .logo:hover .logo-mark {
-      transform: rotate(-6deg) scale(1.08);
-      box-shadow: 0 0 20px rgba(110,86,255,.5);
-    }
-
+    .logo:hover .logo-mark { transform: rotate(-6deg) scale(1.08); box-shadow: 0 0 20px rgba(110,86,255,.5); }
     .logo-mark svg { width: 18px; height: 18px; }
 
     .logo-text em {
@@ -114,7 +105,6 @@
       box-shadow: 0 4px 14px rgba(110,86,255,.2);
     }
 
-    /* ─────────── HERO ─────────── */
     .hero {
       position: relative; z-index: 2;
       padding: 72px 40px 56px; text-align: center; overflow: hidden;
@@ -132,7 +122,6 @@
       50%      { opacity: .7; transform: translateX(-50%) scale(1.08); }
     }
 
-    /* Hero entrance animation */
     .hero-badge, h1, .hero-sub, .install-strip, .stats {
       opacity: 0;
       animation: fadeUp .6s cubic-bezier(.2,.9,.4,1) forwards;
@@ -155,7 +144,6 @@
       color: var(--a3); background: rgba(63,245,192,.08);
       border: 1px solid rgba(63,245,192,.25);
     }
-
     .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--a3); animation: pulse 2s infinite; }
 
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.8)} }
@@ -165,7 +153,6 @@
       font-weight: 900; letter-spacing: -0.045em; line-height: 1.02;
       margin-bottom: 20px;
     }
-
     h1 em {
       font-style: normal;
       background: linear-gradient(120deg, var(--a1) 0%, var(--a2) 50%, var(--a3) 100%);
@@ -178,7 +165,6 @@
       max-width: 500px; margin: 0 auto 36px; line-height: 1.6;
     }
 
-    /* Install tab toggle */
     .install-toggle {
       display: inline-flex; align-items: center;
       background: var(--s1); border: 1px solid var(--border2);
@@ -191,13 +177,9 @@
       color: var(--muted); cursor: pointer; border: none; background: transparent;
       transition: all var(--transition-fast);
     }
-    .itab.active {
-      background: var(--a1); color: #fff;
-      box-shadow: 0 2px 12px rgba(110,86,255,.4);
-    }
+    .itab.active { background: var(--a1); color: #fff; box-shadow: 0 2px 12px rgba(110,86,255,.4); }
     .itab:not(.active):hover { color: var(--muted2); }
 
-    /* Install commands */
     .install-strip {
       display: flex; justify-content: center; gap: 12px;
       flex-wrap: wrap; margin-bottom: 48px;
@@ -216,57 +198,37 @@
       position: relative; overflow: hidden;
     }
     .icmd::after {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: linear-gradient(135deg, rgba(63,245,192,.08), transparent);
-      opacity: 0;
-      transition: opacity var(--transition-fast);
+      opacity: 0; transition: opacity var(--transition-fast);
     }
-    .icmd:hover {
-      border-color: var(--a3);
-      background: rgba(63,245,192,.06);
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(63,245,192,.12);
-    }
+    .icmd:hover { border-color: var(--a3); background: rgba(63,245,192,.06); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(63,245,192,.12); }
     .icmd:hover::after { opacity: 1; }
     .icmd:active { transform: translateY(-1px); }
     .icmd .pkg { color: var(--muted); font-size: .65rem; }
 
-    /* Stats */
-    .stats {
-      display: flex; justify-content: center; gap: 56px; flex-wrap: wrap;
-    }
-
+    .stats { display: flex; justify-content: center; gap: 56px; flex-wrap: wrap; }
     .stat-item { text-align: center; }
-
     .stat-n {
       font-size: 2rem; font-weight: 900; letter-spacing: -0.04em;
       background: linear-gradient(135deg, var(--text) 0%, var(--muted2) 100%);
       -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .stat-l { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; color: var(--a1); margin-top: 2px; }
 
-    .stat-l {
-      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em;
-      color: var(--a1); margin-top: 2px;
-    }
-
-    /* ─────────── CONTROLS ─────────── */
     .controls {
       position: sticky; top: 64px; z-index: 40;
       background: rgba(7,7,13,.96); backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
       padding: 12px 40px;
       display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-      transition: box-shadow var(--transition-med);
     }
 
     .search-wrap { flex: 1; min-width: 200px; position: relative; }
-
     .search-wrap .ico {
       position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
-      color: var(--muted); pointer-events: none;
-      transition: color var(--transition-fast);
+      color: var(--muted); pointer-events: none; transition: color var(--transition-fast);
     }
     .search-wrap:focus-within .ico { color: var(--a1); }
 
@@ -274,8 +236,7 @@
       width: 100%; background: var(--s1); border: 1px solid var(--border2);
       border-radius: 999px; padding: 10px 16px 10px 42px;
       font-family: var(--mono); font-size: 0.76rem;
-      color: var(--text); outline: none;
-      transition: all var(--transition-fast);
+      color: var(--text); outline: none; transition: all var(--transition-fast);
     }
     #search::placeholder { color: var(--muted); }
     #search:focus { border-color: var(--a1); box-shadow: 0 0 0 3px rgba(110,86,255,.15); }
@@ -286,16 +247,12 @@
       display: flex; align-items: center; gap: 10px;
       background: var(--s2); border: 1px solid var(--border);
       border-radius: 999px; padding: 6px 14px;
-      transition: border-color var(--transition-fast);
     }
-    .size-pill:hover { border-color: var(--border2); }
-
     .size-pill label { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); }
 
     input[type="range"] {
       -webkit-appearance: none; width: 80px; height: 3px;
-      background: var(--s3); border-radius: 2px; outline: none;
-      cursor: pointer;
+      background: var(--s3); border-radius: 2px; outline: none; cursor: pointer;
     }
     input[type="range"]::-webkit-slider-thumb {
       -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%;
@@ -303,104 +260,65 @@
       box-shadow: 0 0 8px rgba(110,86,255,.5);
       transition: transform var(--transition-fast), box-shadow var(--transition-fast);
     }
-    input[type="range"]::-webkit-slider-thumb:hover {
-      transform: scale(1.25);
-      box-shadow: 0 0 14px rgba(110,86,255,.7);
-    }
-
+    input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.25); box-shadow: 0 0 14px rgba(110,86,255,.7); }
     .size-val { font-family: var(--mono); font-size: 0.7rem; color: var(--a1); min-width: 28px; }
 
-    /* ─────────── GRID ─────────── */
     .grid-wrap { padding: 32px 40px; position: relative; z-index: 2; }
 
     .grid-meta {
       display: flex; align-items: center; justify-content: space-between;
       margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
     }
-
-    .grid-meta-left {
-      font-family: var(--mono); font-size: 0.65rem; color: var(--muted);
-      letter-spacing: 0.08em;
-    }
-
+    .grid-meta-left { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); letter-spacing: 0.08em; }
     .grid-meta-left span { color: var(--a3); font-weight: 600; }
 
-    /* Per-page selector */
-    .perpage-sel {
-      display: flex; align-items: center; gap: 8px;
-    }
-    .perpage-sel label {
-      font-family: var(--mono); font-size: 0.62rem; color: var(--muted);
-    }
+    .perpage-sel { display: flex; align-items: center; gap: 8px; }
+    .perpage-sel label { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); }
     .perpage-sel select {
       background: var(--s2); border: 1px solid var(--border2);
       border-radius: 8px; padding: 4px 10px;
       font-family: var(--mono); font-size: 0.65rem;
       color: var(--muted2); cursor: pointer; outline: none;
-      transition: border-color var(--transition-fast);
     }
-    .perpage-sel select:hover, .perpage-sel select:focus {
-      border-color: var(--a1); color: var(--text);
-    }
+    .perpage-sel select:hover, .perpage-sel select:focus { border-color: var(--a1); color: var(--text); }
 
     .icon-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
       gap: 10px;
-      /* Grid fade-in container */
     }
 
-    /* Staggered card entrance */
     .icon-card {
       background: var(--s1); border: 1px solid var(--border);
       border-radius: var(--r); padding: 16px 10px 12px;
       display: flex; flex-direction: column; align-items: center; gap: 10px;
       cursor: pointer; position: relative; overflow: hidden;
-      transition:
-        border-color var(--transition-fast),
-        background   var(--transition-fast),
-        transform    var(--transition-med),
-        box-shadow   var(--transition-med),
-        opacity      var(--transition-fast);
-      /* entrance */
-      opacity: 0;
-      transform: translateY(12px) scale(.97);
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-med), box-shadow var(--transition-med);
+      opacity: 0; transform: translateY(12px) scale(.97);
       animation: cardIn .35s cubic-bezier(.2,.9,.4,1) forwards;
     }
-
-    @keyframes cardIn {
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
+    @keyframes cardIn { to { opacity: 1; transform: translateY(0) scale(1); } }
 
     .icon-card::before {
       content: ''; position: absolute; inset: 0; opacity: 0;
       background: radial-gradient(circle at center, rgba(110,86,255,.12) 0%, transparent 70%);
       transition: opacity var(--transition-fast);
     }
-
-    .icon-card:hover {
-      border-color: rgba(110,86,255,.45);
-      background: var(--s2);
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 16px 32px rgba(110,86,255,.14), 0 0 0 1px rgba(110,86,255,.1);
-    }
+    .icon-card:hover { border-color: rgba(110,86,255,.45); background: var(--s2); transform: translateY(-4px) scale(1.01); box-shadow: 0 16px 32px rgba(110,86,255,.14), 0 0 0 1px rgba(110,86,255,.1); }
     .icon-card:hover::before { opacity: 1; }
     .icon-card:active { transform: translateY(-1px) scale(.99); }
-
-    .icon-card:hover .icon-preview img { filter: drop-shadow(0 0 8px var(--a1)); }
 
     .icon-preview { display: flex; align-items: center; justify-content: center; }
     .icon-preview img {
       display: block;
       transition: filter var(--transition-med), transform var(--transition-med);
     }
-    .icon-card:hover .icon-preview img { transform: scale(1.12); }
+    .icon-card:hover .icon-preview img { transform: scale(1.12); filter: drop-shadow(0 0 8px var(--a1)); }
 
     .icon-name {
       font-family: var(--mono); font-size: 0.6rem;
       color: var(--muted); text-align: center;
-      word-break: break-word; max-width: 100%;
-      line-height: 1.4;
+      word-break: break-word; max-width: 100%; line-height: 1.4;
       transition: color var(--transition-fast);
     }
     .icon-card:hover .icon-name { color: var(--muted2); }
@@ -416,19 +334,27 @@
     }
     .icon-card.copied .copy-flash { opacity: 1; }
 
-    .no-results {
-      text-align: center; padding: 80px 20px; display: none;
-      flex-direction: column; align-items: center; gap: 16px;
-    }
+    .no-results { text-align: center; padding: 80px 20px; display: none; flex-direction: column; align-items: center; gap: 16px; }
     .no-results.show { display: flex; }
     .no-results p { font-family: var(--mono); font-size: .8rem; color: var(--muted); }
     .no-results span { color: var(--a2); }
 
-    /* ─────────── PAGINATION ─────────── */
+    /* Loading state */
+    .loading-state {
+      text-align: center; padding: 80px 20px;
+      font-family: var(--mono); font-size: 0.75rem; color: var(--muted);
+      display: flex; flex-direction: column; align-items: center; gap: 16px;
+    }
+    .loading-spinner {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 2px solid var(--s3); border-top-color: var(--a1);
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
     .pagination {
       display: flex; align-items: center; justify-content: center;
       gap: 6px; padding: 32px 40px 8px; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp .4s .1s cubic-bezier(.2,.9,.4,1) forwards;
     }
 
     .pg-btn {
@@ -438,35 +364,15 @@
       background: var(--s1); border: 1px solid var(--border);
       color: var(--muted2); cursor: pointer;
       transition: all var(--transition-fast);
-      padding: 0 10px;
-      user-select: none;
+      padding: 0 10px; user-select: none;
     }
-    .pg-btn:hover:not(.active):not(.disabled) {
-      border-color: var(--a1); color: var(--a1);
-      background: rgba(110,86,255,.08);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(110,86,255,.18);
-    }
+    .pg-btn:hover:not(.active):not(.disabled) { border-color: var(--a1); color: var(--a1); background: rgba(110,86,255,.08); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(110,86,255,.18); }
     .pg-btn:active:not(.disabled) { transform: translateY(0); }
-    .pg-btn.active {
-      background: var(--a1); border-color: var(--a1);
-      color: #fff; font-weight: 700;
-      box-shadow: 0 4px 16px rgba(110,86,255,.4);
-    }
-    .pg-btn.disabled {
-      opacity: .3; cursor: not-allowed;
-    }
-    .pg-ellipsis {
-      font-family: var(--mono); font-size: 0.7rem;
-      color: var(--muted); padding: 0 4px;
-      align-self: center;
-    }
+    .pg-btn.active { background: var(--a1); border-color: var(--a1); color: #fff; font-weight: 700; box-shadow: 0 4px 16px rgba(110,86,255,.4); }
+    .pg-btn.disabled { opacity: .3; cursor: not-allowed; }
+    .pg-ellipsis { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); padding: 0 4px; align-self: center; }
 
-    .pg-jump {
-      display: flex; align-items: center; gap: 8px;
-      margin-left: 12px; padding-left: 12px;
-      border-left: 1px solid var(--border);
-    }
+    .pg-jump { display: flex; align-items: center; gap: 8px; margin-left: 12px; padding-left: 12px; border-left: 1px solid var(--border); }
     .pg-jump label { font-family: var(--mono); font-size: 0.6rem; color: var(--muted); }
     .pg-jump input {
       width: 48px; background: var(--s2); border: 1px solid var(--border2);
@@ -477,14 +383,12 @@
     }
     .pg-jump input:focus { border-color: var(--a1); }
 
-    /* ─────────── MODAL ─────────── */
     .overlay {
       position: fixed; inset: 0; z-index: 200;
       background: rgba(4,4,10,.88); backdrop-filter: blur(16px);
       display: flex; align-items: center; justify-content: center;
       opacity: 0; pointer-events: none;
-      transition: opacity var(--transition-med);
-      padding: 20px;
+      transition: opacity var(--transition-med); padding: 20px;
     }
     .overlay.open { opacity: 1; pointer-events: all; }
 
@@ -499,25 +403,10 @@
     }
     .overlay.open .modal { transform: translateY(0) scale(1); }
 
-    .modal-head {
-      display: flex; justify-content: space-between; align-items: flex-start;
-      margin-bottom: 24px;
-    }
-
-    .modal-name {
-      font-size: 1.5rem; font-weight: 900; letter-spacing: -0.03em;
-    }
-
-    .modal-sub {
-      display: flex; align-items: center; gap: 8px; margin-top: 6px;
-    }
-
-    .m-tag {
-      font-family: var(--mono); font-size: 0.6rem; padding: 2px 10px;
-      border-radius: 20px; border: 1px solid rgba(110,86,255,.3);
-      color: var(--a1); background: rgba(110,86,255,.1);
-      letter-spacing: .04em;
-    }
+    .modal-head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 24px; }
+    .modal-name { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.03em; }
+    .modal-sub { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+    .m-tag { font-family: var(--mono); font-size: 0.6rem; padding: 2px 10px; border-radius: 20px; border: 1px solid rgba(110,86,255,.3); color: var(--a1); background: rgba(110,86,255,.1); letter-spacing: .04em; }
 
     .close-btn {
       width: 32px; height: 32px; border-radius: 50%;
@@ -526,10 +415,7 @@
       cursor: pointer; display: flex; align-items: center; justify-content: center;
       transition: all var(--transition-fast); flex-shrink: 0;
     }
-    .close-btn:hover {
-      background: var(--s3); color: var(--text); border-color: var(--border2);
-      transform: rotate(90deg);
-    }
+    .close-btn:hover { background: var(--s3); color: var(--text); border-color: var(--border2); transform: rotate(90deg); }
 
     .modal-preview {
       display: flex; align-items: center; justify-content: center;
@@ -537,82 +423,47 @@
       border-radius: var(--r2); padding: 40px; margin-bottom: 24px;
       min-height: 150px; position: relative; overflow: hidden;
     }
-
     .modal-preview::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: radial-gradient(circle at center, rgba(110,86,255,.06) 0%, transparent 60%);
     }
-
-    .modal-preview #mp-icon {
-      position: relative; z-index: 1;
-      transition: transform var(--transition-med);
-    }
+    .modal-preview #mp-icon { position: relative; z-index: 1; transition: transform var(--transition-med); }
     .modal-preview:hover #mp-icon { transform: scale(1.06); }
 
-    /* Customize grid */
-    .customize-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 16px; margin-bottom: 24px;
-    }
-
+    .customize-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
     .cg-item { display: flex; flex-direction: column; gap: 6px; }
-
-    .cg-item label {
-      font-family: var(--mono); font-size: 0.62rem; color: var(--muted);
-      letter-spacing: .04em;
-    }
-
+    .cg-item label { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: .04em; }
     .cg-item .val { color: var(--a3); }
-
     .color-row { display: flex; align-items: center; gap: 10px; }
 
     input[type="color"] {
       width: 36px; height: 36px; border: 1px solid var(--border2);
-      border-radius: 8px; background: var(--s2); cursor: pointer;
-      padding: 3px;
+      border-radius: 8px; background: var(--s2); cursor: pointer; padding: 3px;
       transition: border-color var(--transition-fast), transform var(--transition-fast);
     }
     input[type="color"]:hover { border-color: var(--a1); transform: scale(1.05); }
-
     .range-row { display: flex; align-items: center; gap: 10px; }
 
-    /* Tabs */
     .tabs { display: flex; gap: 6px; margin-bottom: 14px; }
-
     .tab {
       padding: 7px 16px; border-radius: 999px;
       font-family: var(--mono); font-size: 0.68rem;
       background: transparent; border: 1px solid var(--border);
-      color: var(--muted); cursor: pointer;
-      transition: all var(--transition-fast);
+      color: var(--muted); cursor: pointer; transition: all var(--transition-fast);
     }
     .tab.active { background: var(--s2); border-color: var(--border2); color: var(--text); }
     .tab:hover:not(.active) { border-color: var(--border2); color: var(--muted2); transform: translateY(-1px); }
 
-    /* Code block */
-    .code-wrap {
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: var(--r2); position: relative; overflow: hidden;
-    }
-
-    .code-topbar {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 10px 16px; border-bottom: 1px solid var(--border);
-    }
-
-    .code-lang {
-      font-family: var(--mono); font-size: 0.62rem; color: var(--muted);
-      letter-spacing: .06em;
-    }
+    .code-wrap { background: var(--bg); border: 1px solid var(--border); border-radius: var(--r2); position: relative; overflow: hidden; }
+    .code-topbar { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid var(--border); }
+    .code-lang { font-family: var(--mono); font-size: 0.62rem; color: var(--muted); letter-spacing: .06em; }
 
     .copy-btn {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 4px 14px; border-radius: 999px;
       font-family: var(--mono); font-size: 0.65rem;
       background: var(--s2); border: 1px solid var(--border2);
-      color: var(--muted2); cursor: pointer;
-      transition: all var(--transition-fast);
+      color: var(--muted2); cursor: pointer; transition: all var(--transition-fast);
     }
     .copy-btn:hover { border-color: var(--a3); color: var(--a3); transform: translateY(-1px); }
     .copy-btn.did-copy { border-color: var(--a3); color: var(--a3); }
@@ -624,7 +475,6 @@
       overflow-x: auto; white-space: pre; min-height: 80px;
     }
 
-    /* Syntax colors */
     .kw  { color: #ff5fa0; }
     .sym { color: #3ff5c0; }
     .str { color: #ffd06c; }
@@ -633,7 +483,6 @@
     .tag-col { color: #6e56ff; }
     .attr { color: #3ff5c0; }
 
-    /* Toast */
     .toast {
       position: fixed; bottom: 28px; left: 50%;
       transform: translateX(-50%) translateY(70px);
@@ -642,47 +491,26 @@
       font-family: var(--mono); font-size: 0.72rem; color: var(--a3);
       z-index: 400; pointer-events: none;
       transition: transform .28s cubic-bezier(.2,.9,.4,1);
-      white-space: nowrap;
-      box-shadow: 0 8px 24px rgba(63,245,192,.15);
+      white-space: nowrap; box-shadow: 0 8px 24px rgba(63,245,192,.15);
     }
     .toast.show { transform: translateX(-50%) translateY(0); }
 
-    /* Footer */
     footer {
       text-align: center; padding: 28px 20px 36px;
       border-top: 1px solid var(--border); position: relative; z-index: 2;
     }
-    footer p, footer a {
-      font-family: var(--mono); font-size: 0.65rem;
-      color: var(--muted); text-decoration: none;
-    }
+    footer p, footer a { font-family: var(--mono); font-size: 0.65rem; color: var(--muted); text-decoration: none; }
     footer a:hover { color: var(--a3); }
     footer .sep { margin: 0 8px; opacity: .4; }
 
-    /* Skeleton loader */
-    .skeleton-card {
-      background: var(--s1); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 16px 10px 12px;
-      display: flex; flex-direction: column; align-items: center; gap: 10px;
-    }
-    .skeleton-icon {
-      width: 28px; height: 28px; border-radius: 6px;
-      background: linear-gradient(90deg, var(--s2) 25%, var(--s3) 50%, var(--s2) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.4s infinite;
-    }
-    .skeleton-name {
-      width: 60%; height: 8px; border-radius: 4px;
-      background: linear-gradient(90deg, var(--s2) 25%, var(--s3) 50%, var(--s2) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.4s infinite .1s;
-    }
-    @keyframes shimmer {
-      0%   { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
+    .skeleton-card { background: var(--s1); border: 1px solid var(--border); border-radius: var(--r); padding: 16px 10px 12px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .skeleton-icon { width: 28px; height: 28px; border-radius: 6px; background: linear-gradient(90deg, var(--s2) 25%, var(--s3) 50%, var(--s2) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+    .skeleton-name { width: 60%; height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--s2) 25%, var(--s3) 50%, var(--s2) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite .1s; }
+    @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 
-    /* ─── Responsive ─── */
+    #page-transition { position: fixed; inset: 0; z-index: 999; background: var(--bg); opacity: 0; pointer-events: none; transition: opacity .2s; }
+    #page-transition.flash { opacity: .35; }
+
     @media (max-width: 680px) {
       header { padding: 0 18px; }
       .hero { padding: 48px 18px 36px; }
@@ -695,27 +523,16 @@
       .pg-jump { display: none; }
     }
 
-    /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb { background: var(--s3); border-radius: 3px; }
-
-    /* Page transition overlay */
-    #page-transition {
-      position: fixed; inset: 0; z-index: 999;
-      background: var(--bg);
-      opacity: 0; pointer-events: none;
-      transition: opacity .2s;
-    }
-    #page-transition.flash { opacity: .35; }
   </style>
 </head>
 <body>
 
-<!-- Page transition overlay for smooth page changes -->
 <div id="page-transition"></div>
 
-<!-- ═══════════════ HEADER ═══════════════ -->
+<!-- HEADER -->
 <header id="main-header">
   <a href="#" class="logo">
     <div class="logo-mark">
@@ -727,48 +544,37 @@
   </a>
   <div class="header-right">
     <a href="https://www.npmjs.com/package/iconvault-native" target="_blank" rel="noopener" class="hbtn">📦 npm</a>
-    <a href="#" class="hbtn" onclick="showToast('GitHub · coming soon');return false;">⭐ GitHub</a>
+    <a  target="_blank" rel="noopener" class="hbtn">⭐ GitHub</a>
   </div>
 </header>
 
-<!-- ═══════════════ HERO ═══════════════ -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="badge hero-badge"><div class="badge-dot"></div> lightweight · react-native-svg · curated icons</div>
   <h1>Every icon<br/>you'll ever <em>need</em></h1>
   <p class="hero-sub">Production-ready SVG icon library for React Native & React Web. Fully customizable, zero extra dependencies.</p>
 
-  <!-- Install toggle -->
   <div class="install-toggle">
     <button class="itab active" data-itab="rn" onclick="switchInstall('rn')">React Native</button>
     <button class="itab" data-itab="web" onclick="switchInstall('web')">React Web</button>
   </div>
 
   <div class="install-strip">
-    <!-- React Native panel -->
     <div class="install-panel active" id="install-rn">
       <div class="icmd" onclick="copyToClipboard('npm install iconvault-native react-native-svg', 'npm command copied!')">
-        <span>📦</span>
-        <span>npm install iconvault-native react-native-svg</span>
-        <span class="pkg">⧉</span>
+        <span>📦</span><span>npm install iconvault-native react-native-svg</span><span class="pkg">⧉</span>
       </div>
       <div class="icmd" onclick="copyToClipboard('yarn add iconvault-native react-native-svg', 'yarn command copied!')">
-        <span>🧶</span>
-        <span>yarn add iconvault-native react-native-svg</span>
-        <span class="pkg">⧉</span>
+        <span>🧶</span><span>yarn add iconvault-native react-native-svg</span><span class="pkg">⧉</span>
       </div>
     </div>
-    <!-- React Web panel -->
     <div class="install-panel" id="install-web">
       <div class="icmd" onclick="copyToClipboard('npm install iconvault-native', 'npm command copied!')">
-        <span>📦</span>
-        <span>npm install iconvault-native</span>
-        <span class="pkg">⧉</span>
+        <span>📦</span><span>npm install iconvault-native</span><span class="pkg">⧉</span>
       </div>
       <div class="icmd" onclick="copyToClipboard('yarn add iconvault-native', 'yarn command copied!')">
-        <span>🧶</span>
-        <span>yarn add iconvault-native</span>
-        <span class="pkg">⧉</span>
+        <span>🧶</span><span>yarn add iconvault-native</span><span class="pkg">⧉</span>
       </div>
     </div>
   </div>
@@ -780,7 +586,7 @@
   </div>
 </section>
 
-<!-- ═══════════════ CONTROLS ═══════════════ -->
+<!-- CONTROLS -->
 <div class="controls">
   <div class="search-wrap">
     <svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
@@ -795,7 +601,7 @@
   </div>
 </div>
 
-<!-- ═══════════════ GRID ═══════════════ -->
+<!-- GRID -->
 <div class="grid-wrap">
   <div class="grid-meta">
     <div class="grid-meta-left"><span id="count">—</span> ICONS</div>
@@ -809,6 +615,10 @@
       </select>
     </div>
   </div>
+  <div id="loading-indicator" class="loading-state">
+    <div class="loading-spinner"></div>
+    <span>Loading icons...</span>
+  </div>
   <div class="icon-grid" id="grid"></div>
   <div class="no-results" id="no-results">
     <div style="font-size:48px">🔍</div>
@@ -816,19 +626,16 @@
   </div>
 </div>
 
-<!-- ═══════════════ PAGINATION ═══════════════ -->
+<!-- PAGINATION -->
 <div class="pagination" id="pagination"></div>
 
-<!-- ═══════════════ MODAL ═══════════════ -->
+<!-- MODAL -->
 <div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
   <div class="modal">
-
     <div class="modal-head">
       <div>
         <div class="modal-name" id="m-name">icon-name</div>
-        <div class="modal-sub">
-          <span class="m-tag" id="m-cat">CATEGORY</span>
-        </div>
+        <div class="modal-sub"><span class="m-tag" id="m-cat">CATEGORY</span></div>
       </div>
       <button class="close-btn" onclick="closeModal()">×</button>
     </div>
@@ -882,19 +689,37 @@
       </div>
       <code class="code-inner" id="code-inner"></code>
     </div>
-
   </div>
 </div>
 
 <!-- Toast -->
 <div class="toast" id="toast">✓ Copied!</div>
 
-<!-- ═══════════════ FOOTER ═══════════════ -->
+<!-- FOOTER -->
 <footer>
-  <p>iconvault-native<span class="sep">·</span>MIT License<span class="sep">·</span>Built for React Native devs<span class="sep">·</span><a href="#" onclick="showToast('npm docs coming soon');return false">npm</a><span class="sep">·</span><a href="#" onclick="showToast('GitHub WIP');return false">GitHub</a></p>
+  <p>iconvault-native<span class="sep">·</span>MIT License<span class="sep">·</span>Built for React Native devs<span class="sep">·</span><a href="https://www.npmjs.com/package/iconvault-native" target="_blank">npm</a><span class="sep">·</span><a href="https://github.com/saqlainshaikhcodes/iconvault-website" target="_blank">GitHub</a></p>
 </footer>
 
 <script>
+// ─────────────────────────────────────────────────────────────
+//  CONFIG — apna GitHub username aur repo name yahan daalo
+// ─────────────────────────────────────────────────────────────
+const GITHUB_USER = 'saqlainshaikhcodes';
+const GITHUB_REPO = 'iconvault-website';
+const GITHUB_BRANCH = 'main';
+
+// Icon sources — in order of priority
+// 1. Same-origin (works locally AND on Vercel when icons/ folder is present)
+// 2. GitHub raw (fallback if fetch fails)
+// 3. unpkg (fallback if npm package has the icons)
+function getIconUrl(name) {
+  return `./icons/${name}.svg`;
+}
+
+function getIconFallbackUrl(name) {
+  return `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/icons/${name}.svg`;
+}
+
 // ─────────────────────────────────────────────────────────────
 //  STATE
 // ─────────────────────────────────────────────────────────────
@@ -902,8 +727,6 @@ let ICONS = [];
 let search = '', globalSize = 28;
 let active = null;
 let activeTab = 'rn';
-
-// Pagination state
 let currentPage = 1;
 let perPage = 96;
 
@@ -951,88 +774,107 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 2200);
 }
 
-// ─────────────────────────────────────────────────────────────
-//  INSTALL TAB SWITCHER
-// ─────────────────────────────────────────────────────────────
 function switchInstall(tab) {
   document.querySelectorAll('.itab').forEach(b => b.classList.toggle('active', b.dataset.itab === tab));
   document.querySelectorAll('.install-panel').forEach(p => p.classList.toggle('active', p.id === 'install-' + tab));
 }
 
-
 window.addEventListener('scroll', () => {
-  const header = document.getElementById('main-header');
-  header.classList.toggle('scrolled', window.scrollY > 10);
+  document.getElementById('main-header').classList.toggle('scrolled', window.scrollY > 10);
 }, { passive: true });
 
 // ─────────────────────────────────────────────────────────────
-//  LOAD ICONS
+//  LOAD ICONS — Multi-strategy with fallbacks
 // ─────────────────────────────────────────────────────────────
-fetch('./icons.json')
-  .then(r => r.json())
-  .then(names => {
-    ICONS = names;
-    document.getElementById('total-count').textContent = ICONS.length;
-    renderGrid();
-  })
-  .catch(() => {
-    // Demo fallback
-    ICONS = [
-      'Home','Heart','Star','Bell','Settings','Search','User','Lock',
-      'Mail','Camera','Phone','Map','Clock','Calendar','Cloud','Download',
-      'Upload','Trash','Edit','Check','X','Plus','Minus','ArrowUp',
-      'ArrowDown','ArrowLeft','ArrowRight','Menu','Grid','List',
-      'Share','Bookmark','Flag','Tag','Filter','Sort','Refresh',
-      'Power','Wifi','Bluetooth','Battery','Volume','Music','Video',
-      'Image','File','Folder','Archive','Database','Server','Monitor',
-      'Tablet','Smartphone','Printer','Headphones','Mic','Speaker',
-      'Sun','Moon','Wind','Droplet','Fire','Zap','Shield','Eye',
-      'EyeOff','Unlock','Key','CreditCard','DollarSign','ShoppingCart',
-      'Package','Gift','Award','TrendingUp','TrendingDown','BarChart',
-      'PieChart','Activity','AlertCircle','Info','HelpCircle','CheckCircle',
-      'XCircle','Loader','MoreHorizontal','MoreVertical','ChevronUp',
-      'ChevronDown','ChevronLeft','ChevronRight','ChevronsUp','ChevronsDown',
-      'ExternalLink','Link','Globe','MessageCircle','MessageSquare','Send',
-      'AtSign','Hash','Terminal','Code','Copy','Clipboard','Scissors',
-      'Tool','Wrench','Sliders','Sidebar','Layout','Columns','Rows',
-      'Table','AlignLeft','AlignCenter','AlignRight','Bold','Italic',
-      'Underline','Type','Maximize','Minimize','Move','RotateCw','RotateCcw',
-      'ZoomIn','ZoomOut','Crop','Layers','Pen','PenTool','Feather',
-      'Inbox','Send','Archive','Paperclip','Smile','ThumbsUp','ThumbsDown',
-      'Heart','Star','Zap','Target','Compass','Navigation','Anchor','Aperture',
-    ];
-    document.getElementById('total-count').textContent = ICONS.length + ' (demo)';
-    renderGrid();
-  });
+async function loadIcons() {
+  const loadingEl = document.getElementById('loading-indicator');
+
+  // Strategy 1: Fetch ./icons.json (works locally + on Vercel if file is deployed)
+  try {
+    const res = await fetch('./icons.json', { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (Array.isArray(data) && data.length > 0) {
+      ICONS = data;
+      document.getElementById('total-count').textContent = ICONS.length.toLocaleString();
+      loadingEl.style.display = 'none';
+      renderGrid();
+      return;
+    }
+    throw new Error('Empty or invalid icons.json');
+  } catch(e) {
+    console.warn('Local icons.json failed:', e.message);
+  }
+
+  // Strategy 2: Fetch from GitHub raw URL
+  try {
+    const ghUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/icons.json`;
+    const res = await fetch(ghUrl);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (Array.isArray(data) && data.length > 0) {
+      ICONS = data;
+      document.getElementById('total-count').textContent = ICONS.length.toLocaleString();
+      loadingEl.style.display = 'none';
+      renderGrid();
+      return;
+    }
+    throw new Error('Empty or invalid icons.json from GitHub');
+  } catch(e) {
+    console.warn('GitHub raw icons.json failed:', e.message);
+  }
+
+  // Strategy 3: Demo fallback
+  console.warn('All fetch strategies failed — using demo icons');
+  ICONS = [
+    'Home','Heart','Star','Bell','Settings','Search','User','Lock',
+    'Mail','Camera','Phone','Map','Clock','Calendar','Cloud','Download',
+    'Upload','Trash','Edit','Check','X','Plus','Minus','ArrowUp',
+    'ArrowDown','ArrowLeft','ArrowRight','Menu','Grid','List',
+    'Share','Bookmark','Flag','Tag','Filter','Sort','Refresh',
+    'Power','Wifi','Bluetooth','Battery','Volume','Music','Video',
+    'Image','File','Folder','Archive','Database','Server','Monitor',
+    'Tablet','Smartphone','Printer','Headphones','Mic','Speaker',
+    'Sun','Moon','Wind','Droplet','Zap','Shield','Eye',
+    'EyeOff','Unlock','Key','CreditCard','DollarSign','ShoppingCart',
+    'Package','Gift','Award','TrendingUp','TrendingDown','BarChart',
+    'PieChart','Activity','AlertCircle','Info','HelpCircle','CheckCircle',
+    'XCircle','Loader','MoreHorizontal','MoreVertical','ChevronUp',
+    'ChevronDown','ChevronLeft','ChevronRight','ExternalLink','Link',
+    'Globe','MessageCircle','MessageSquare','Send','AtSign','Hash',
+    'Terminal','Code','Copy','Clipboard','Scissors','Tool','Wrench',
+    'Sliders','Layout','Table','AlignLeft','AlignCenter','AlignRight',
+    'Bold','Italic','Underline','Type','Maximize','Minimize','Move',
+    'RotateCw','RotateCcw','ZoomIn','ZoomOut','Crop','Layers',
+    'Pen','PenTool','Feather','Inbox','Paperclip','Smile',
+    'ThumbsUp','ThumbsDown','Target','Compass','Navigation','Anchor',
+  ];
+  document.getElementById('total-count').textContent = ICONS.length + ' (demo)';
+  loadingEl.style.display = 'none';
+  renderGrid();
+}
+
+// Start loading
+loadIcons();
 
 // ─────────────────────────────────────────────────────────────
 //  FILTERED + PAGINATED DATA
 // ─────────────────────────────────────────────────────────────
 function getFiltered() {
-  return ICONS.filter(n =>
-    !search || n.toLowerCase().includes(search.toLowerCase())
-  );
+  return ICONS.filter(n => !search || n.toLowerCase().includes(search.toLowerCase()));
 }
-
 function getPage(filtered) {
   const start = (currentPage - 1) * perPage;
   return filtered.slice(start, start + perPage);
 }
-
 function totalPages(filtered) {
   return Math.max(1, Math.ceil(filtered.length / perPage));
 }
 
-// ─────────────────────────────────────────────────────────────
-//  PAGE TRANSITION FLASH
-// ─────────────────────────────────────────────────────────────
 function pageFlash(cb) {
   const el = document.getElementById('page-transition');
   el.classList.add('flash');
-  setTimeout(() => {
-    cb();
-    el.classList.remove('flash');
-  }, 120);
+  setTimeout(() => { cb(); el.classList.remove('flash'); }, 120);
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -1047,7 +889,7 @@ function renderGrid(animated = true) {
   const grid     = document.getElementById('grid');
   const noRes    = document.getElementById('no-results');
 
-  document.getElementById('count').textContent = filtered.length;
+  document.getElementById('count').textContent = filtered.length.toLocaleString();
 
   if (!filtered.length) {
     grid.innerHTML = '';
@@ -1059,27 +901,31 @@ function renderGrid(animated = true) {
 
   noRes.classList.remove('show');
 
-  // Render skeleton first for perceived speed
   if (animated) {
     grid.innerHTML = Array(Math.min(pageData.length, perPage)).fill(0).map(() =>
       `<div class="skeleton-card"><div class="skeleton-icon"></div><div class="skeleton-name"></div></div>`
     ).join('');
   }
 
-  // Defer actual render so skeleton is visible
   const doRender = () => {
-    grid.innerHTML = pageData.map((name, i) => `
-      <div class="icon-card" style="animation-delay:${Math.min(i * 18, 400)}ms" onclick="openModal('${name}')">
-        <div class="icon-preview">
-          <img
-          // local  src="./icons/${name}.svg"
-          src="https://unpkg.com/iconvault-native/icons/${name}.svg"
-          width="${globalSize}" height="${globalSize}" loading="lazy" onerror="this.style.opacity='.3'" />
+    grid.innerHTML = pageData.map((name, i) => {
+      const iconUrl = getIconUrl(name);
+      const fallbackUrl = getIconFallbackUrl(name);
+      return `
+        <div class="icon-card" style="animation-delay:${Math.min(i * 18, 400)}ms" onclick="openModal('${name}')">
+          <div class="icon-preview">
+            <img
+              src="${iconUrl}"
+              width="${globalSize}" height="${globalSize}"
+              loading="lazy"
+              onerror="this.src='${fallbackUrl}'; this.onerror=function(){this.style.opacity='.2'}"
+            />
+          </div>
+          <div class="icon-name">${formatName(name)}</div>
+          <div class="copy-flash">✨ Copied</div>
         </div>
-        <div class="icon-name">${formatName(name)}</div>
-        <div class="copy-flash">✨ Copied</div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
     renderPagination(filtered.length, pages);
   };
 
@@ -1095,7 +941,6 @@ function renderGrid(animated = true) {
 // ─────────────────────────────────────────────────────────────
 function renderPagination(total, pages) {
   const pg = document.getElementById('pagination');
-
   if (pages <= 1) { pg.innerHTML = ''; return; }
 
   const MAX_VISIBLE = 5;
@@ -1104,41 +949,30 @@ function renderPagination(total, pages) {
   if (pages <= MAX_VISIBLE + 2) {
     pageNums = Array.from({ length: pages }, (_, i) => i + 1);
   } else {
-    // Always show first, last, current ± 1
     const set = new Set([1, pages, currentPage, currentPage - 1, currentPage + 1].filter(p => p >= 1 && p <= pages));
     pageNums = [...set].sort((a, b) => a - b);
   }
 
-  let html = '';
-
-  // Prev button
-  html += `<button class="pg-btn${currentPage === 1 ? ' disabled' : ''}" onclick="goPage(${currentPage - 1})" aria-label="Previous">
+  let html = `<button class="pg-btn${currentPage === 1 ? ' disabled' : ''}" onclick="goPage(${currentPage - 1})" aria-label="Previous">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
   </button>`;
 
-  // Page numbers with ellipsis
   let prev = 0;
   for (const p of pageNums) {
-    if (prev && p - prev > 1) {
-      html += `<span class="pg-ellipsis">…</span>`;
-    }
+    if (prev && p - prev > 1) html += `<span class="pg-ellipsis">…</span>`;
     html += `<button class="pg-btn${p === currentPage ? ' active' : ''}" onclick="goPage(${p})">${p}</button>`;
     prev = p;
   }
 
-  // Next button
   html += `<button class="pg-btn${currentPage === pages ? ' disabled' : ''}" onclick="goPage(${currentPage + 1})" aria-label="Next">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
   </button>`;
 
-  // Jump to page
-  html += `
-    <div class="pg-jump">
-      <label>Go to</label>
-      <input type="number" id="jump-input" min="1" max="${pages}" placeholder="${currentPage}"
-        onkeydown="if(event.key==='Enter'){goPage(+this.value);this.value=''}"
-      />
-    </div>`;
+  html += `<div class="pg-jump">
+    <label>Go to</label>
+    <input type="number" id="jump-input" min="1" max="${pages}" placeholder="${currentPage}"
+      onkeydown="if(event.key==='Enter'){goPage(+this.value);this.value=''}" />
+  </div>`;
 
   pg.innerHTML = html;
 }
@@ -1147,11 +981,9 @@ function goPage(p) {
   const filtered = getFiltered();
   const pages = totalPages(filtered);
   if (p < 1 || p > pages || p === currentPage) return;
-
   pageFlash(() => {
     currentPage = p;
     renderGrid(true);
-    // Smooth scroll to grid top
     document.querySelector('.grid-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
@@ -1162,11 +994,25 @@ function goPage(p) {
 async function openModal(name) {
   active = { name, svgRaw: null };
 
-  try {
-    const res = await fetch(`./icons/${name}.svg`);
-    const text = await res.text();
-    active.svgRaw = text.trim();
-  } catch(e) {
+  // Try same-origin first, then GitHub raw fallback
+  const urls = [
+    `./icons/${name}.svg`,
+    `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/icons/${name}.svg`
+  ];
+
+  for (const url of urls) {
+    try {
+      const res = await fetch(url);
+      if (!res.ok) continue;
+      const text = await res.text();
+      if (text.includes('<svg')) {
+        active.svgRaw = text.trim();
+        break;
+      }
+    } catch(e) { /* try next */ }
+  }
+
+  if (!active.svgRaw) {
     active.svgRaw = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/></svg>`;
   }
 
@@ -1196,6 +1042,7 @@ function updatePreview() {
   document.getElementById('m-sw-lbl').textContent     = sw;
 
   const previewEl = document.getElementById('mp-icon');
+
   if (active.svgRaw) {
     const parser = new DOMParser();
     const doc = parser.parseFromString(active.svgRaw, 'image/svg+xml');
@@ -1214,11 +1061,11 @@ function updatePreview() {
       svgEl.style.color = fill;
       previewEl.innerHTML = '';
       previewEl.appendChild(svgEl);
-    } else {
-      previewEl.innerHTML = `<img src="./icons/${active.name}.svg" width="${sz}" height="${sz}" />`;
     }
   } else {
-    previewEl.innerHTML = `<img src="./icons/${active.name}.svg" width="${sz}" height="${sz}" />`;
+    const iconUrl = getIconUrl(active.name);
+    const fallbackUrl = getIconFallbackUrl(active.name);
+    previewEl.innerHTML = `<img src="${iconUrl}" width="${sz}" height="${sz}" onerror="this.src='${fallbackUrl}'" />`;
   }
 
   renderCode(fill, stroke, sz, sw);
@@ -1231,7 +1078,6 @@ function renderCode(fill, stroke, sz, sw) {
   if (!active) return;
   const name = active.name;
   const svgRaw = active.svgRaw || '';
-
   const langMap = { rn: 'JSX · React Native', web: 'JSX · React Web', svg: 'SVG · Raw Markup' };
   document.getElementById('code-lang').textContent = langMap[activeTab];
 
@@ -1249,7 +1095,6 @@ function renderCode(fill, stroke, sz, sw) {
       `  <span class="attr">width</span>={<span class="num">${sz}</span>}\n` +
       `  <span class="attr">height</span>={<span class="num">${sz}</span>}\n` +
       `<span class="tag-col">/&gt;</span>`;
-
   } else if (activeTab === 'web') {
     html =
       `<span class="kw">import</span> { <span class="sym">IconVault</span> } <span class="kw">from</span> <span class="str">'iconvault-native'</span>;\n\n` +
@@ -1262,17 +1107,12 @@ function renderCode(fill, stroke, sz, sw) {
       `  <span class="attr">width</span>=<span class="str">"${sz}"</span>\n` +
       `  <span class="attr">height</span>=<span class="str">"${sz}"</span>\n` +
       `<span class="tag-col">/&gt;</span>`;
-
   } else {
-    const escaped = svgRaw
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-
+    const escaped = svgRaw.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     html = escaped
       .replace(/(&lt;\/?[\w:-]+)/g, '<span class="tag-col">$1</span>')
-      .replace(/([\w:-]+)=/g,       '<span class="attr">$1</span>=')
-      .replace(/"([^"]*)"/g,        '<span class="str">"$1"</span>');
+      .replace(/([\w:-]+)=/g, '<span class="attr">$1</span>=')
+      .replace(/"([^"]*)"/g, '<span class="str">"$1"</span>');
   }
 
   document.getElementById('code-inner').innerHTML = html;
@@ -1293,31 +1133,9 @@ function copyCodeBlock() {
   let plainText = '';
 
   if (activeTab === 'rn') {
-    plainText =
-`import { IconVault } from 'iconvault-native';
-
-// Inside your component:
-<IconVault
-  name="${name}"
-  fill="${fill}"
-  stroke="${stroke}"
-  strokeWidth={${sw}}
-  width={${sz}}
-  height={${sz}}
-/>`;
+    plainText = `import { IconVault } from 'iconvault-native';\n\n// Inside your component:\n<IconVault\n  name="${name}"\n  fill="${fill}"\n  stroke="${stroke}"\n  strokeWidth={${sw}}\n  width={${sz}}\n  height={${sz}}\n/>`;
   } else if (activeTab === 'web') {
-    plainText =
-`import { IconVault } from 'iconvault-native';
-
-// Inside your component:
-<IconVault
-  name="${name}"
-  fill="${fill}"
-  stroke="${stroke}"
-  strokeWidth="${sw}"
-  width="${sz}"
-  height="${sz}"
-/>`;
+    plainText = `import { IconVault } from 'iconvault-native';\n\n// Inside your component:\n<IconVault\n  name="${name}"\n  fill="${fill}"\n  stroke="${stroke}"\n  strokeWidth="${sw}"\n  width="${sz}"\n  height="${sz}"\n/>`;
   } else {
     plainText = active.svgRaw || '';
   }
@@ -1352,14 +1170,12 @@ function handleOverlayClick(e) {
 // ─────────────────────────────────────────────────────────────
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
-  // Keyboard pagination
   if (!active) {
     if (e.key === 'ArrowRight' && !e.target.matches('input')) goPage(currentPage + 1);
     if (e.key === 'ArrowLeft'  && !e.target.matches('input')) goPage(currentPage - 1);
   }
 });
 
-// Debounced search
 let searchTimer;
 document.getElementById('search').addEventListener('input', e => {
   clearTimeout(searchTimer);
@@ -1373,7 +1189,6 @@ document.getElementById('search').addEventListener('input', e => {
 document.getElementById('global-size').addEventListener('input', e => {
   globalSize = +e.target.value;
   document.getElementById('size-val').textContent = globalSize;
-  // Update all visible icon images without re-render
   document.querySelectorAll('.icon-preview img').forEach(img => {
     img.width = globalSize; img.height = globalSize;
   });
