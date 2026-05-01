@@ -11,6 +11,7 @@
 
     :root {
       --bg:        #07070d;
+      --bg2:        #07070d;
       --s1:        #0e0e1a;
       --s2:        #16162a;
       --s3:        #1e1e35;
@@ -287,6 +288,7 @@
       grid-template-columns: repeat(auto-fill, minmax(108px, 1fr));
       gap: 10px;
     }
+    
 
     .icon-card {
       background: var(--s1); border: 1px solid var(--border);
@@ -307,8 +309,12 @@
     .icon-card:hover { border-color: rgba(110,86,255,.45); background: var(--s2); transform: translateY(-4px) scale(1.01); box-shadow: 0 16px 32px rgba(110,86,255,.14), 0 0 0 1px rgba(110,86,255,.1); }
     .icon-card:hover::before { opacity: 1; }
     .icon-card:active { transform: translateY(-1px) scale(.99); }
+    
 
-    .icon-preview { display: flex; align-items: center; justify-content: center; }
+    .icon-preview { display: flex; align-items: center; justify-content: center;
+      transform: scale(1.12); filter: drop-shadow(0 0 10px #ababff6c);
+    
+    }
     .icon-preview img {
       display: block;
       transition: filter var(--transition-med), transform var(--transition-med);
@@ -417,18 +423,43 @@
     }
     .close-btn:hover { background: var(--s3); color: var(--text); border-color: var(--border2); transform: rotate(90deg); }
 
-    .modal-preview {
-      display: flex; align-items: center; justify-content: center;
-      background: var(--bg); border: 1px solid var(--border);
-      border-radius: var(--r2); padding: 40px; margin-bottom: 24px;
-      min-height: 150px; position: relative; overflow: hidden;
-    }
-    .modal-preview::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(circle at center, rgba(110,86,255,.06) 0%, transparent 60%);
-    }
-    .modal-preview #mp-icon { position: relative; z-index: 1; transition: transform var(--transition-med); }
-    .modal-preview:hover #mp-icon { transform: scale(1.06); }
+.modal-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: var(--r2);
+  padding: 40px;
+  margin-bottom: 24px;
+  min-height: 150px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient background */
+.modal-preview::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+    rgba(171,171,255,0.15) 0%,
+    transparent 60%
+  );
+}
+
+/* Icon base */
+.modal-preview #mp-icon {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover effect (your requested one) */
+.modal-preview:hover #mp-icon {
+  transform: scale(1.12);
+  filter: drop-shadow(0 0 10px #ababff6c);
+}
 
     .customize-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
     .cg-item { display: flex; flex-direction: column; gap: 6px; }
@@ -545,7 +576,10 @@
   </a>
   <div class="header-right">
     <a href="https://www.npmjs.com/package/iconvault-native" target="_blank" rel="noopener" class="hbtn">📦 npm</a>
-    <a target="_blank" rel="noopener" class="hbtn">⭐ GitHub</a>
+<a target="_blank" rel="noopener" class="hbtn"
+   onclick="alert('GitHub repository coming soon.\n\nThank you for your interest in IconVault. We appreciate your patience and support.')">
+   ⭐ GitHub
+</a>
   </div>
 </header>
 
@@ -1019,10 +1053,10 @@ async function openModal(name) {
 
   document.getElementById('m-name').textContent = formatName(name);
   document.getElementById('m-cat').textContent = name.replace(/[A-Z]/g,' $&').trim().split(' ')[0].toUpperCase() || 'ICON';
-  document.getElementById('m-fill').value   = '#6e56ff';
-  document.getElementById('m-stroke').value = '#6e56ff';
+  document.getElementById('m-fill').value   = '#ffffff';
+  document.getElementById('m-stroke').value = '#ffffff';
   document.getElementById('m-sz').value = 40;
-  document.getElementById('m-sw').value = 1.5;
+  document.getElementById('m-sw').value = 0;
 
   updatePreview();
   document.getElementById('overlay').classList.add('open');
