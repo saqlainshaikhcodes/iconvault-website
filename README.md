@@ -3,7 +3,7 @@
 Official icon browser website for [iconvault-native](https://www.npmjs.com/package/iconvault-native).
 
 ## 🌐 Live Site
-> https://iconvault-native.vercel.app *(update after deploy)*
+> https://iconvault-icons.netlify.app/ *(update after deploy)*
 
 ## Features
 - 🔍 Real-time icon search
